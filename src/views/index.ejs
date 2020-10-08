@@ -1,0 +1,94 @@
+<%- include('partials/_header') %>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="cold-md-5">
+                <div class="card">
+                    <div class="card-body" style="padding: 15px; margin: 10px;">
+                        <form action="/add" method="POST">
+                        <div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="name" value="" placeholder="Insert a name">
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="lastname" value="" placeholder="Insert a lastname">
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="email" value="" placeholder="Insert an email">
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="phonenumber" value="" placeholder="Insert a phone number">
+                            </div>
+
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="Male" checked>
+                                <label class="form-check-label" for="gridRadios1">
+                                    Male
+                                </label>
+                                </div>
+                                <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="Female">
+                                <label class="form-check-label" for="gridRadios2">
+                                    Female
+                                </label>
+                                </div>
+                                <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="gender" id="gridRadios3" value="Helicopter" disabled>
+                                <label class="form-check-label" for="gridRadios3">
+                                    Helicopter
+                                </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="" style="padding-top:10px;">
+                            <button type="submit" class="btn btn-primary btn-block">Add new contact</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cold-md-7">
+                <table class="table table-bordered table-hover" style="padding: 15px; margin: 10px;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Lastname</th>
+                            <th>Gender</th>
+                            <th>Email</th>
+                            <th>Phone number</th>
+                            <th>Relevant</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i = 0; i < contacts.length; i++) { %>
+                        <tr id=i>
+                            <td><%= contacts[i].name %></td>
+                            <td><%= contacts[i].lastname %></td>
+                            <td><%= contacts[i].gender %></td>
+                            <td><%= contacts[i].email %></td>
+                            <td><%= contacts[i].phonenumber %></td>
+                            <td>
+                                <% if ( !contacts[i].relevant ) { %>
+                                <a href="/mark/<%= contacts[i]._id %>" class="btn btn-dark">No</a>
+                                <% } else { %>
+                                <a href="/mark/<%= contacts[i]._id %>" class="btn btn-info">Yes</a>
+                                <% } %>
+                            </td>
+                            <td>
+                                <a href="/drop/<%= contacts[i]._id %>" class="btn btn-danger">Drop</a>
+                                <a href="/edit/<%= contacts[i]._id %>" class="btn btn-warning">Edit</a>
+                            </td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<%- include('partials/_footer') %>
