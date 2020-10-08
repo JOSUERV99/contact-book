@@ -1,6 +1,5 @@
 # Contact Book (MEN stack)!
-
-!(Contact book page)[https://github.com/JOSUERV99/contact-book/blob/main/cbook_example.png]
+<img src="https://github.com/JOSUERV99/contact-book/blob/main/cbook_example.png" alt="Contact book page"/>
 
 ## Instalation
 
