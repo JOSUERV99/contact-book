@@ -8,13 +8,6 @@
 mongod --dbpath <path>
  ```` 
 
-Use npm to:
-
-Install express (only if you don't have)
-
-```bash
-    npm i express
-```
 Download the dependencies:
 
 ```bash
